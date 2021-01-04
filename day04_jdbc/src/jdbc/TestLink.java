@@ -7,7 +7,7 @@ public class TestLink {
 
     public static void main(String[] args) {
         String driverName="com.mysql.cj.jdbc.Driver";
-        String dbURL="jdbc:mysql://localhost:3306/weihualab?serverTimezone=UTC&useSSL=true";
+        String dbURL="jdbc:mysql://localhost:3306/db1?serverTimezone=UTC&useSSL=true";
         String userName="root";
         String userPwd="admin";
         try
