@@ -1,6 +1,8 @@
 package jdbc;
 
+import domain.Account;
 import domain.Jobs;
+import util.JDBCUtils;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,7 +14,7 @@ import java.util.List;
 public class JDBCDemo08 {
 
     public static void main(String[] args) {
-        List<Jobs> list = new JDBCDemo08().finsAll();
+        List<Account> list = new JDBCDemo08().finsAll2();
         System.out.println(list);
         System.out.println(list.size());
     }
@@ -21,7 +23,6 @@ public class JDBCDemo08 {
             查询所有的jobs对象
          */
     public List<Jobs> finsAll() {
-
         ResultSet rs = null;
         Statement stmt = null;
         Connection conn = null;
@@ -84,6 +85,55 @@ public class JDBCDemo08 {
                     throwables.printStackTrace();
                 }
             }
+        }
+
+        return list;
+    }
+    /*
+        演示JDBC的工具类
+     */
+
+    public List<Account> finsAll2() {
+        ResultSet rs = null;
+        Statement stmt = null;
+        Connection conn = null;
+        List<Account> list = null;
+        try {
+            /*//1.注册驱动
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            //2.获取连接
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db1?serverTimezone=UTC&useSSL=true", "root", "admin");*/
+            conn = JDBCUtils.getConnection();
+
+            //3.定义sql
+            String sql = "select * from account";
+            //4.获取执行sql的对象
+            stmt = conn.createStatement();
+            //5.执行sql
+            rs = stmt.executeQuery(sql);
+            //6.遍历结果集，封装对象，装载集合
+            Account acc = null;
+            list = new ArrayList<Account>();
+            while(rs.next()) {
+                //获取数据
+                int id = rs.getInt("id");
+                String name = rs.getString("NAME");
+                int balance = rs.getInt("balance");
+
+                //创建jobs对象，并赋值
+                acc = new Account();
+                acc.setId(id);
+                acc.setName(name);
+                acc.setBalance(balance);
+
+                //装载集合
+                list.add(acc);
+            }
+
+        } catch ( SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.close(rs,stmt,conn);
         }
 
         return list;

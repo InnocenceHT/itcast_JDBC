@@ -9,7 +9,7 @@ public class TestLink {
         String driverName="com.mysql.cj.jdbc.Driver";
         String dbURL="jdbc:mysql://localhost:3306/db1?serverTimezone=UTC&useSSL=true";
         String userName="root";
-        String userPwd="admin";
+        String userPwd="admin123";
         try
         {
             Class.forName(driverName);

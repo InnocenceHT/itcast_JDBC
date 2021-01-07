@@ -19,9 +19,10 @@ public class JDBCDemo01 {
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         //3.获取数据库的连接对象
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db1?serverTimezone=UTC&useSSL=true", "root", "admin");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db1?serverTimezone=UTC&useSSL=true", "root", "admin123");
 
         //4.定义sql语句
+        //定义相关的事件集合
         String sql = "update account set balance = 500 where id = 1";
 
         //5.获取执行sql的对象 Statement
