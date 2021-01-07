@@ -37,7 +37,6 @@ public class JDBCUtils {
             //pro.load(new FileReader("src/jdbc.properties"));
             pro.load(new FileReader(path));
 
-
             //3.获取数据，赋值
             JDBCUtils.url = pro.getProperty("url");
             user = pro.getProperty("user");
@@ -56,7 +55,6 @@ public class JDBCUtils {
         }
 
     }
-
 
 
     /*
@@ -98,7 +96,6 @@ public class JDBCUtils {
                 throwables.printStackTrace();
             }
         }
-
 
         if ( stmt != null) {
             try {
