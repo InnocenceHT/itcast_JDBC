@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Database/Database.iml" filepath="$PROJECT_DIR$/Database/Database.iml" />
       <module fileurl="file://$PROJECT_DIR$/day04_jdbc/day04_jdbc.iml" filepath="$PROJECT_DIR$/day04_jdbc/day04_jdbc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day05_dataSource_jdbcTemplate/day05_dataSource_jdbcTemplate.iml" filepath="$PROJECT_DIR$/day05_dataSource_jdbcTemplate/day05_dataSource_jdbcTemplate.iml" />
       <module fileurl="file://$PROJECT_DIR$/itcast.iml" filepath="$PROJECT_DIR$/itcast.iml" />
     </modules>
   </component>

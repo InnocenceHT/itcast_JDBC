@@ -1,7 +1,6 @@
 package jdbc;
 
 import util.JDBCUtils;
-
 import java.sql.*;
 import java.util.Scanner;
 
@@ -11,6 +10,8 @@ import java.util.Scanner;
             1.通过键盘录入用户名和密码
             2.判断用户是否登录成功
  */
+
+
 public class JDBCDemo09 {
 
     public static void main(String[] args) {
@@ -34,8 +35,16 @@ public class JDBCDemo09 {
 
     }
 
-
-
+    /*
+        登录方法
+        JDBC方法：
+            1.注册驱动
+            2.获取数据库连接对象
+            3.创建Statement对象
+            4.定义sql
+            5.获取执行sql的对象
+            6.释放资源
+     */
     /*
         登录方法
      */
@@ -77,7 +86,6 @@ public class JDBCDemo09 {
         }finally {
             JDBCUtils.close(rs,stmt,conn);
         }
-
 
         return false;
 
@@ -154,10 +162,7 @@ public class JDBCDemo09 {
         }finally {
             JDBCUtils.close(rs,pstmt,conn);
         }
-
-
         return false;
-
     }
 
 }
